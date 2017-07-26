@@ -1,0 +1,31 @@
+{
+  "users":[
+    {
+      "name": "{{if (getenv "RABBITMQ_DEFAULT_USER")}}{{getenv "RABBITMQ_DEFAULT_USER"}}{{else}}guest{{end}}",
+      "password": "{{if (getenv "RABBITMQ_DEFAULT_PASS")}}{{getenv "RABBITMQ_DEFAULT_PASS"}}{{else}}guest{{end}}",
+      "tags": "administrator"
+    }
+  ],
+  "vhosts":[
+    {
+      "name": "{{if (getenv "RABBITMQ_DEFAULT_VHOST")}}{{getenv "RABBITMQ_DEFAULT_VHOST"}}{{else}}/{{end}}"
+     }
+  ],
+  "permissions": [
+    {
+      "user": "{{if (getenv "RABBITMQ_DEFAULT_USER")}}{{getenv "RABBITMQ_DEFAULT_USER"}}{{else}}guest{{end}}",
+      "vhost": "{{if (getenv "RABBITMQ_DEFAULT_VHOST")}}{{getenv "RABBITMQ_DEFAULT_VHOST"}}{{else}}/{{end}}",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "policies":[
+    {
+      "vhost": "{{if (getenv "RABBITMQ_DEFAULT_VHOST")}}{{getenv "RABBITMQ_DEFAULT_VHOST"}}{{else}}/{{end}}",
+      "name": "all",
+      "pattern": "^.*",
+      "definition": {"ha-mode":"all"}
+    }
+  ]
+}

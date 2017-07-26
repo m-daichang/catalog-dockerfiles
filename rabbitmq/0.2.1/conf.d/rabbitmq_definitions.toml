@@ -1,0 +1,7 @@
+[template]
+src = "rabbitmq_definitions.tmpl"
+dest = "/etc/rabbitmq/rabbitmq_definitions.json"
+keys = [
+  "/self/service",
+  "/containers",
+]
