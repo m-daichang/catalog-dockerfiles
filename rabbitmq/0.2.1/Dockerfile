@@ -1,7 +1,10 @@
 FROM busybox
 
+# Add packeges
 ADD https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 /confd
-RUN chmod +x /confd
+ADD https://github.com/rancher/giddyup/releases/download/v0.17.1/giddyup /giddyup
+RUN chmod +x /confd && \
+    chmod u+x /giddyup
 
 ADD ./conf.d /etc/confd/conf.d
 ADD ./templates /etc/confd/templates

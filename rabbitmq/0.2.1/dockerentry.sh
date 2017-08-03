@@ -1,10 +1,10 @@
 #!/bin/sh
 
-cp /run.sh /opt/rancher/bin/
+cp -p /run.sh /giddyup /opt/rancher/bin/.
 
-if [[ -v ALTERNATE_CONF ]]; then 
+if [[ -v ALTERNATE_CONF ]]; then
     echo "Custom template found: overriding internal template";
-    printenv ALTERNATE_CONF > /etc/confd/templates/rabbitmq.tmpl; 
+    printenv ALTERNATE_CONF > /etc/confd/templates/rabbitmq.tmpl;
 fi
 
 exec /confd $@ $CONFD_ARGS
