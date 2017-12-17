@@ -1,8 +1,8 @@
 FROM busybox
 
 # Add packeges
-ADD https://github.com/kelseyhightower/confd/releases/download/v0.11.0/confd-0.11.0-linux-amd64 /confd
-ADD https://github.com/rancher/giddyup/releases/download/v0.17.1/giddyup /giddyup
+ADD https://github.com/kelseyhightower/confd/releases/download/v0.14.0/confd-0.14.0-linux-amd64 /confd
+ADD https://github.com/rancher/giddyup/releases/download/v0.19.0/giddyup /giddyup
 RUN chmod +x /confd && \
     chmod u+x /giddyup
 
